@@ -1,52 +1,29 @@
-class Account:
-    def __init__(self):
-        self._balance = 0
-    
-# a property is an instance variable, that is protected in how to read or how to write in it.
+class Bank:
+    def __init__(self, dollars, ruppis, afghani):
+        self.dollars = dollars
+        self.ruppis = ruppis
+        self.afghani = afghani
 
-    @property
-    def balance(self):
-        return self._balance
-    
-    def deposit(self,n):
-        self._balance += n
+    def __str__(self):
+        return f"USD$ {self.dollars} INR {self.ruppis} Afg {self.afghani}"
 
-    def withdraw(self,n):
-        self._balance -= n
-    
-def main():
-    account = Account()
-    print("Balance",account.balance)
-    account.deposit(100)
-    account.withdraw(29)
-    print("Balance",account.balance)
-
-if __name__ == "__main__":
-    main()
+    # OVERLOADING OPERATOR: we can add, self refers to the objects on the left and other refers to the object on the right side of +
+    def __add__(self,other):
+        usd = self.dollars + other.dollars
+        inr = self.ruppis + other.ruppis
+        afg = self.afghani + other.afghani
+        return Bank(usd, inr, afg)
 
 
+king = Bank(100,32,21)
+palwa = Bank(2,21,2)
 
+# usd = king.dollars + palwa.dollars
+# inr = king.ruppis + palwa.ruppis
+# afg = king.afghani + plawa.afghani
 
+# total = Bank(usd, inr, afg)
 
+# OVERLOADING
 
-# balance = 0
-
-
-
-
-# def main():
-#     print("Balance:",balance)
-#     withdraw(108)
-#     deposit(90)
-#     print("Balance:",balance)
-
-# def deposit(n):
-#     global balance
-#     balance -= n
-
-# def withdraw(n):
-#     global balance
-#     balance +=n
-
-# if __name__ == "__main__":
-#     main()
+print(king + palwa)
