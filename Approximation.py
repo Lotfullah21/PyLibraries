@@ -11,6 +11,8 @@ while abs(guess**3 - cube) >= epsiolon and cube<=guess:
 
     guess = guess + increment
     num_guess = num_guess+1
+
+    C:\Users\Lotfullah Andishmand\Desktop\Python\Code\Approximation.py
     ctr = ctr+1
 print(num_guess)
 
